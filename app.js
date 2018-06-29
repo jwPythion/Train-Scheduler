@@ -54,27 +54,27 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
     console.log(childSnapshot.val());
   
-    // Store everything into a variable.
+    // Move everything into a variable.
     var trainName = childSnapshot.val().name;
     var trDesti = childSnapshot.val().Destination;
     var trainTime = childSnapshot.val().Time;
     var trFreq = childSnapshot.val().Freq;
   
-    // Employee Info
-    console.log(trainName);
-    console.log(trDesti);
-    console.log(trainTime);
-    console.log(trFreq);
+    // // Train Info
+    // console.log(trainName);
+    // console.log(trDesti);
+    // console.log(trainTime);
+    // console.log(trFreq);
   
     // Prettify the employee start
     var prettyTrainTime = moment.unix(trainTime).format("HH:mm");
   
-    // Calculation to change military time to local time
+    // Calculation to convert military time to local time
     var trainMil =  moment().endOf('hour').fromNow(); 
     // var trainMil = moment().diff(moment(trainTime).fromNow()
     console.log(trainMil);
   
-    // Calculate the time arrival for each incoming train
+    // Calculate the train time arrival for each incoming train...
     var trArriv = trainMil * trFreq;
    
   
